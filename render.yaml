@@ -20,10 +20,11 @@ services:
       - key: PORT
         value: "8080"
 
-  - type: static
+  - type: web
     name: shippo-frontend
+    env: static
     buildCommand: "cd frontend && npm install && npm run build"
-    publishPath: "frontend/dist"
+    staticPublishPath: "frontend/dist"
     routes:
       - type: rewrite
         source: /api/*
